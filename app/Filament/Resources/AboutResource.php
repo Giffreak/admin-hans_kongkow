@@ -6,6 +6,7 @@ use App\Filament\Resources\AboutResource\Pages;
 use App\Filament\Resources\AboutResource\RelationManagers;
 use App\Models\About;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,7 +24,14 @@ class AboutResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('headline')
+                ->required()
+                ->label('Headline')
+                ->maxLength('100'),
+                TextInput::make('deskripsi')
+                ->required()
+                ->maxLength('100')
+                ->label('deskripsi'),
             ]);
     }
 
